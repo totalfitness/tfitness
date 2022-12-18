@@ -1,0 +1,438 @@
+START
+
+    /*This program will ask the user to select the type of room and the size of the room they
+wish to be apart the building they are constructing.
+After which it will tell the user the size of each room and the entire build in square feet*/
+
+
+
+
+	//DECLARATION OF VARIABLES
+	DECLARE:
+
+		float baseFee; float constructCharge1; float constructCharge2;
+		float gct; float totBuildSize; float totConstructCost; float buildSize1; float buildSize2;
+
+
+
+		int roomSelection;
+		int numberOfRooms = 0; int reStartRoomSelection = 0;
+
+		float length, width; char question;
+		float kitchenSize, masterRoomSize, bedroomSize, bathroomSize;
+		float varandahSize, hallSize, officeSize, garageSize;
+		float allKitchen, allMasterRoom, allbedroom, allBathroom;
+		float allVarandah, allHall, allOffice, allGarage;
+		
+		
+	//DECLARATION INITIALIZATION OF VARIABLES
+	DECLARE AND SET:
+		int kitchenCounter = 0; int masterRoomcounter = 0;int bedroomCounter = 0;
+		int bathroomCounter = 0; int varandahCounter = 0; int hallCounter = 0;
+		int officeCounter = 0; int garageCounter = 0; int totalNumberOfRoom = 0;
+		float sales;
+		int Class;
+		char idNo[50];
+		double commisRate;
+		float commission;
+		
+	//INITIALIZATION OF VARIABLES
+	SET:
+		baseFee = 25000.0;
+		gct = 1.15;
+		constructCharge1 = 1500.0;
+		constructCharge2 = 2000.0;
+		totBuildSize = 0.0;
+		buildSize1 = 10000.0;
+		buildSize2 = 0.0;
+		totConstructCost = 0.0;
+
+
+
+		sales = 0.0;
+		commisRate = 0.0;
+		int n = 90, n2 = 20;
+		int options;
+
+
+    
+        
+
+    while(options != 4)do
+	{
+    print("\n");
+    print("\t\t\tWELOCME TO STEALTH CONSTRUCTION's CALCULATOR\n\n");
+    for(int g = 1; g < n; g++)do
+    {
+                print("*");
+                }
+             print("\n\nPlease choose an option:\n\n");
+             print("1. Construction Calculator\n");
+             print("2. Commission Calculator (If Then Else)\n");
+             print("3. Commission Calculator (Select Case)\n");
+             print("4. End Program\n");
+
+             print("\nEnter choice here: ");
+             scan("%d", &options);
+
+
+             select case of (options){
+
+             case 1:
+                         while(roomSelection != 8)
+            {
+                print("\n\n\t//////***Types of Rooms***\\\\\\\\\\\\");
+             print("\n\n\tALL MEASUREMENTS MUST BE IN FEET!\n");
+             print("\t");
+            for(int i = 0; i <= 32; i++)then{
+                print("-");
+
+            }
+                print("\n\t|\t1. Kitchen\t\t|");
+                print("\n\t|\t2. Bedroom\t\t|");
+                print("\n\t|\t3. Bathroom\t\t|");
+                print("\n\t|\t4. Varandah/Porch\t|");
+                print("\n\t|\t5. Hall\t\t\t|");
+                print("\n\t|\t6. Office\t\t|");
+                print("\n\t|\t7. Garage\t\t|");
+                print("\n\t|\t8. Exit\t\t\t|");
+
+                print("\n\t|");
+            for(int i = 0; i <= 30; i++){
+                print("_");
+            }print("|");
+
+                print("\n\n\tPlease Select a Room: ");
+                scan("%d", &roomSelection);
+
+                print("\n\t ");
+            for(int i = 0; i <= 46; i++){
+                print("*");
+            }
+
+                    select case of (roomSelection){
+                    case 1:
+                        print("\n\tWhat size kitchen do you want?");
+                        print("\n\ttPlease enter the desired length of the kitchen in feet: ");
+                        scan("%f", &length);
+                        print("\n\tPlease enter the desired width of the kitchen in feet: ");
+                        scan("%f", &width);
+
+                        kitchenSize = length * width;
+                        print("\n\tHow many of this size kitchens do you want? ");
+                        scan("%d", &kitchenCounter);
+                        print("\t");
+                        for(int i = 0; i <= 55; i++){
+                printf("#");}
+                        printf("\n\n\t   The size of one kitchen will be: %0.2f square feet. ", kitchenSize);
+                        printf("\n\t   Number of kitchens at required size: %d\n\n\t", kitchenCounter);
+                        for(int i = 0; i <= 55; i++){
+                printf("#");}
+                        allKitchen = kitchenSize * kitchenCounter;
+
+                        break;
+
+                    case 2:do{
+                        printf("\n\t|\tIs this a Master bedroom?\n\tY for yes and N for no: ");
+                        scanf(" %c", &question);
+                        if( question == 'y' || question == 'Y'){
+                            printf("\n\t\tWhat is the size of the Master bedroom?\n");
+                            printf("\n\t\tPlease enter the desired length of the Master bedroom in feet: ");
+                            scanf("%f", &length);
+                            printf("\n\t\tPlease enter the desired width of the Master bedroom in feet: ");
+                            scanf("%f", &width);
+                             printf("\n\tHow many of this size Master bedroom do you want? ");
+                            scanf("%d", &masterRoomcounter);
+                            masterRoomSize = length * width;
+                            allMasterRoom = masterRoomSize * masterRoomcounter;
+                        printf("\t");
+                        for(int i = 0; i <= 55; i++){
+                printf("#");}
+                        printf("\n\n\t   The size of one Master bedroom will be: %0.2f square feet. ", masterRoomSize);
+                        printf("\n\t   Number of Master bedroom at the size: %d\n\n\t", masterRoomcounter);
+                        for(int i = 0; i <= 55; i++){
+                printf("#");}
+                        break;}
+                        else if(question == 'N' || question == 'n'){
+                        printf("\n\t\tWhat size bedroom do you want?");
+                        //printf("\n\tMeasurement must be in feet!\n");
+                        printf("\n\t\tPlease enter the desired length of the bedroom in feet: ");
+                        scanf("%f", &length);
+                        printf("\n\t\tPlease enter the desired width of the bedroom in feet: ");
+                        scanf("%f", &width);
+                        printf("\n\tHow many of this size bedroom do you want? ");
+                        scanf("%d", &bedroomCounter);
+                        bedroomSize = length * width;
+                        allbedroom = bedroomCounter * bedroomSize;
+
+                        printf("\n\t\tThe size one bedroom will %0.2f square feet.\n", bedroomSize);
+                        printf("\n\t   Number of bedroom at the size: %d\n\n\t", bedroomCounter);
+                        break;}
+                        else{
+                            printf("\n\t\t---Invalid selection!---\n");}}
+                            while( question != 'y' || question != 'y' || question != 'N' || question != 'y');
+                        break;
+                    case 3:
+                        printf("\n\t\tWhat size bathroom do you want?");
+                        //printf("\n\tMeasurement must be in feet!\n");
+                        printf("\n\t\tPlease enter the desired length of the bathroom in feet: ");
+                        scanf("%f", &length);
+                        printf("\n\t\tPlease enter the desired width of the bathroom in feet: ");
+                        scanf("%f", &width);
+                        bathroomSize = length * width;
+                        printf("\n\tHow many of this size bathroom do you want? ");
+                        scanf("%d", &bathroomCounter);
+                          printf("\t");
+                        for(int i = 0; i <= 55; i++){
+                printf("#");}
+                        printf("\n\n\t   The size of one bathroom will be: %0.2f square feet. ", bathroomSize);
+                        printf("\n\t   Number of bathrooms at the size: %d\n\n\t", bathroomCounter);
+                        for(int i = 0; i <= 55; i++){
+                printf("#");}
+                        allBathroom = bathroomSize * bathroomCounter;
+                        break;
+                    case 4:
+                        printf("\n\t\tWhat size varandah/Porch do you want?");
+                        //printf("\n\tMeasurement must be in feet!\n");
+                        printf("\n\t\tPlease enter the desired length of the varandah in feet: ");
+                        scanf("%f", &length);
+                        printf("\n\t\tPlease enter the desired width of the varandah in feet: ");
+                        scanf("%f", &width);
+                        varandahSize = length * width;
+                         printf("\n\tHow many of this size varandahs do you want? ");
+                        scanf("%d", &varandahCounter);
+                          printf("\t");
+                        for(int i = 0; i <= 55; i++){
+                printf("#");}
+                        printf("\n\n\t   The size of one varandah/porch will be: %0.2f square feet. ", varandahSize);
+                        printf("\n\t   Number of varandah/porch at the size: %d\n\n\t", varandahCounter);
+                        for(int i = 0; i <= 55; i++){
+                printf("#");}
+                        allVarandah = varandahSize * varandahCounter;
+                        break;
+                    case 5:
+                        printf("\n\t\tWhat size hall do you want?");
+                        printf("\n\t\tPlease enter the desired length of the hall in feet: ");
+                        scanf("%f", &length);
+                        printf("\n\t\tPlease enter the desired width of the hall in feet: ");
+                        scanf("%f", &width);
+                        hallSize = length * width;
+                 printf("\n\tHow many of this size hall do you want? ");
+                        scanf("%d", &hallCounter);
+                          printf("\t");
+                        for(int i = 0; i <= 55; i++){
+                printf("#");}
+                        printf("\n\n\t   The size of one hall will be: %0.2f square feet. ", hallSize);
+                        printf("\n\t   Number of hall at the size: %d\n\n\t", hallCounter);
+                        for(int i = 0; i <= 55; i++){
+                printf("#");}
+                        allHall = hallSize * hallCounter;
+                        break;
+                    case 6:
+                        printf("\n\tWhat size office do you want?");
+                        printf("\n\ttPlease enter the desired length of the office in feet: ");
+                        scanf("%f", &length);
+                        printf("\n\tPlease enter the desired width of the office in feet: ");
+                        scanf("%f", &width);
+
+                        officeSize = length * width;
+                        printf("\n\tHow many of this size office do you want? ");
+                        scanf("%d", &officeCounter);
+                        printf("\t");
+                        for(int i = 0; i <= 55; i++){
+                printf("#");}
+                        printf("\n\n\t   The size of one office will be: %0.2f square feet. ", officeSize);
+                        printf("\n\t   Number of office at required size: %d\n\n\t", officeCounter);
+                        for(int i = 0; i <= 55; i++){
+                printf("#");}
+                        allOffice = officeSize * officeCounter;
+                        break;
+
+                    case 7:
+                        printf("\n\tWhat size garage do you want?");
+                        printf("\n\tPlease enter the desired length of the garage in feet: ");
+                        scanf("%f", &length);
+                        printf("\n\tPlease enter the desired width of the garage in feet: ");
+                        scanf("%f", &width);
+
+                        garageSize = length * width;
+                        printf("\n\tHow many of this size garage do you want? ");
+                        scanf("%d", &garageCounter);
+                        printf("\t");
+                        for(int i = 0; i <= 55; i++){
+                printf("#");}
+                        printf("\n\n\t   The size of one garage will be: %0.2f square feet. ", garageSize);
+                        printf("\n\t   Number of garage at required size: %d\n\n\t", garageCounter);
+                        for(int i = 0; i <= 55; i++){
+                        printf("#");}
+                        allGarage = garageSize * garageCounter;
+                        break;
+                    case 8:
+                        printf("\n\t\tAre you sure you want to exit Room Selection?.");
+                        printf("\n\t\t To re-enter Room Selection, Please press 9.\n\tTo confirm the exiting of room selection press 8 once more: ");
+                        scanf("%d", &reStartRoomSelection);
+                        if(reStartRoomSelection == 9){
+                            roomSelection = 0;
+                        }
+                        else if(reStartRoomSelection == 8){
+                            printf("\n\t\t//////Exiting Room Selection confirmed\\\\\\\n");
+                            break;
+                        }
+                        break;
+                    default:
+                        printf("\n\t\t---Invalid selection!---\n");
+                }
+                if(roomSelection < 8 && roomSelection > 0){numberOfRooms ++;}
+
+                //if(roomSelection > 8 && reStartRoomSelection == 9){numberOfRooms --;}
+
+
+
+            }
+
+                totBuildSize = allBathroom + allbedroom + allGarage + allHall + allKitchen + allMasterRoom + allOffice + allVarandah;
+                    if (totBuildSize > 10000){buildSize2 = totBuildSize - buildSize1;}
+
+                    if(totBuildSize <= 10000.0){
+                            totConstructCost = ((totBuildSize * constructCharge1) + baseFee) * gct;}
+                    else{
+                        totConstructCost = (((buildSize2 * constructCharge2) + baseFee) + (buildSize1 * constructCharge1)) * gct;}
+
+                         totalNumberOfRoom = kitchenCounter + masterRoomcounter + bedroomCounter +  varandahCounter + hallCounter + officeCounter + garageCounter + bathroomCounter;
+
+
+
+             printf("\n\n\t\t***The rooms selected are:***\n");
+             printf("\n\t*\tKitchen:\t\t%d\t*", kitchenCounter);
+             printf("\n\t*\tMaster bedroom:\t\t%d\t*", masterRoomcounter);
+             printf("\n\t*\tRegular bedroom:\t%d\t*", bedroomCounter);
+             printf("\n\t*\tBathroom:\t\t%d\t*", bathroomCounter);
+             printf("\n\t*\tVarandah:\t\t%d\t*", varandahCounter);
+             printf("\n\t*\tHall:\t\t\t%d\t*", hallCounter);
+             printf("\n\t*\tOffice:\t\t\t%d\t*", officeCounter);
+             printf("\n\t*\tGarage:\t\t\t%d\t*", garageCounter);
+
+
+
+
+             printf("\n\t\t***You have Selected total of %d room types***\n", numberOfRooms);
+
+
+              printf("\n\n\t\t***Total building size is %0.2f square feet***\n\n", totBuildSize);
+
+             printf("\n\n\t*+*\tThe total amount of room in the building is: %d\t*+*\n", totalNumberOfRoom);
+                printf("\n\n\t*+*\tThe cost of construction is $%1.2f\t*+*\n\n", totConstructCost);
+                         break;
+         case 2:
+                   printf("Please enter Identification Number: "); //prompt user to enter Identification Number
+           scanf("%s", idNo);//check for user input
+
+            printf("\nPlease enter sales amount: ");//prompt user to enter sales amount
+            scanf("%f", &sales);//check for user input
+
+            printf("\nPlease enter class between 1 - 4: ");//prompt user to enter the class they belong to
+            scanf("%d", &Class);//check for user input
+
+            switch(Class){
+            case 1:
+                if(sales <= 2000){
+                        commisRate = 0.06;
+                        commission = sales * commisRate;}
+                else if(sales > 2000 && sales < 5000){
+                    commisRate = 0.07;
+                    commission = sales * commisRate;}
+                else if(sales >= 5000){
+                    commisRate = 0.1;
+                    commission = sales * commisRate;}
+                break;
+            case 2:
+                if(sales < 2000){
+                        commisRate = 0.04;
+                        commission = sales * commisRate;}
+                else if(sales >= 2000){
+                    commisRate = 0.06;
+                    commission = sales * commisRate;}
+                break;
+            case 3:
+                if(sales > 5000){
+                        commisRate = 0.045;
+                        commission = ((sales - 5000) * commisRate) + 5752.75;}
+                break;
+            case 4:
+                {commisRate = 0.05;
+                    commission = (sales * commisRate) + 10000;}
+                break;
+
+            default:{
+                printf("Invalid Class.");}}
+
+        /// print results
+        printf("\n\n\n\nIdentification Number:\t%s", idNo);
+        printf("\nCommission Payable:\t$%1.2f\n\n", commission);
+
+             break;
+         case 3:
+                      printf("Please enter Identification Number: "); //prompt user to enter Identification Number
+           scanf("%s", idNo);//check for user input
+            printf("\nPlease enter sales amount: $");//prompt user to enter sales amount
+            scanf("%f", &sales);//check for user input
+
+            printf("\nPlease enter class between 1 - 4: ");//prompt user to enter the class they belong to
+            scanf("%d", &Class);//check for user input
+
+            //check for a specific condition(if sales is greater than or equal to 2000 and if class is equal to one)
+            if(sales <= 2000 && Class == 1){
+                commisRate = 0.06;
+                commission = commisRate * sales;}
+        //check for a specific condition(if sales is less than 2000 and if class is equal to two)
+            else if(sales < 2000 && Class == 2){
+                    commisRate = 0.04;
+                    commission = commisRate * sales;}
+        //check for a specific condition(if sales is greater than 2000 and less than 5000, also if class is equal to one)
+            else if(sales > 2000 && sales < 5000){
+                    if(Class == 1)
+                        commisRate = 0.07;
+                        commission = commisRate * sales;}
+        //check for a specific condition(if sales is greater than or equal to 2000 and if class is equal to two)
+            if(sales >= 2000 && Class == 2){
+                    commisRate = 0.06;
+                    commission = commisRate * sales;}
+        //check for a specific condition(if sales is greater than or equal to 5000 and if class is equal to one)
+            else if(sales >= 5000 && Class == 1){
+                    commisRate = 0.1;
+                    commission = commisRate * sales;}
+        //check for a specific condition(if sales is greater than 5000 and if class is equal to three)
+            else if(sales > 5000 && Class == 3){
+                    commisRate = 0.045;
+                    commission = (commisRate * (sales-5000)) + 5752.75;}
+        //check for a specific condition(if class is equal to four)
+            else if(Class == 4){
+                commisRate = 0.05;
+                commission = (commisRate * sales) + 10000;}
+        //check for a specific condition(if class is greater to four)
+            else{
+                printf("\nInvalid class\n");}
+        /// print results
+        printf("\n\n\n\nIdentification Number:\t%s", idNo);
+        printf("\nCommission Payable:\t$%1.2f\n\n", commission);
+                     break;
+         case 4:
+             printf("\n\t\tAre you sure you want to exit Stealth Construction's Calculator?.");
+             printf("\n\t\t To re-enter Stealth Construction's Calculator, Please press 5.");
+             printf("\n\tTo confirm the exiting of Stealth Construction's Calculator press 4 once more: ");
+             int restartOptions;
+             scanf("%d", &restartOptions);
+
+            if(restartOptions == 5){
+                options = 0;
+            }
+            else if(restartOptions == 4){
+                printf("\n\t\t//////Exiting Stealth Construction's Calculator confirmed\\\\\\\n");
+                break;
+            }
+        default:
+            printf("\n\t\t---Invalid selection!---\n");
+    } if(options = 1){roomSelection = 0;}}
+    return 0;
+}
+END
